@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSim Project Downloader</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "jszip": "https://esm.sh/jszip@3.10.1"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WebSim Downloader</h1>
+            <p>Fetch and download WebSim projects as standard ZIP files.</p>
+        </header>
+
+        <main>
+            <!-- Step 1: Input -->
+            <section id="step-input" class="card">
+                <div class="input-group">
+                    <label for="project-input">Project URL or ID</label>
+                    <input type="text" id="project-input" placeholder="https://websim.ai/p/..." />
+                </div>
+                <button id="btn-fetch" class="primary-btn">Fetch Project</button>
+                <div id="fetch-error" class="error-msg hidden"></div>
+            </section>
+
+            <!-- Step 2: Download -->
+            <section id="step-download" class="card hidden">
+                <div class="project-info">
+                    <img id="project-thumb" src="" alt="" class="thumb hidden" />
+                    <div>
+                        <h2 id="project-title">Project Title</h2>
+                        <p id="project-author">by @author</p>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="version-select">Select Version</label>
+                    <select id="version-select"></select>
+                </div>
+
+                <button id="btn-download" class="success-btn">Download .zip</button>
+                <button id="btn-reset" class="secondary-btn" style="margin-top:10px;">Fetch Another</button>
+            </section>
+
+            <!-- Context Section -->
+            <section class="card">
+                <h3>API Reference</h3>
+                <p>The core logic used to fetch assets and metadata.</p>
+                <textarea id="api-context" readonly style="width:100%; height: 200px; font-family: monospace; font-size: 0.8rem; background: #0f172a; color: #cbd5e1; border: 1px solid #334155; border-radius: 6px; padding: 10px; white-space: pre; overflow-x: auto;"></textarea>
+                <button id="btn-copy-api" class="secondary-btn">Copy to Clipboard</button>
+            </section>
+
+            <!-- Loading Overlay -->
+            <div id="loading" class="overlay hidden">
+                <div class="spinner"></div>
+                <p id="loading-text">Processing...</p>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
